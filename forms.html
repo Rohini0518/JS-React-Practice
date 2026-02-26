@@ -10,9 +10,10 @@
       padding:10px;
     }
 </style>
+
 <body>
     <h2>Forms In Html</h2>
-    <form action="submit" method="post">
+    <form action="submit" method="" onsubmit="handleSubmit(event)">
         <label for="firstNm" >First Name: </label>
         <input type="text"  id="firstNm" name="firstname" placeholder="enter name"/>
 <div >
@@ -31,6 +32,28 @@
 <button type="submit" >Submit</button>
     </form>
 </body>
+<script>
+
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+console.log(e.target,"e.target")
+const formDataa=new FormData(e.target)
+console.log(formDataa,"frm formdta")
+for(let [key,value] of formDataa.entries()){
+    console.log(key,value,"key-value")
+}
+    }
+
+    const formm=document.querySelector("form");
+   const formData2=new FormData(formm)
+   console.log(formData2,"formdata2")
+console.log(formData2.getAll("skills"))
+
+
+    </script>
 </html>
+
+
 <!-- http://127.0.0.1:5500/submit?firstname=rho&age=24&gender=on&skills=on&skills=Nodejs -->
  <!-- http://127.0.0.1:5500/submit?firstname=ram&age=24&gender=male&skills=js&skills=Nodejs -->
+  <!-- http://127.0.0.1:5500/forms.html?firstname=RAV&age=30&gender=male&skills=React&skills=js&skills=Nodejs -->
